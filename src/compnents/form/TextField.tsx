@@ -18,7 +18,7 @@ function TextField({ value, type, icon }: TextFieldProps) {
   return (
     <div className={Styles.fieldContainer}>
       <IconLoader icon={name} size={size} color={color} />
-      <input type={type} value={value} />
+      <input type={type} placeholder={value} />
     </div>
   );
 }

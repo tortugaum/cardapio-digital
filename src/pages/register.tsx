@@ -23,6 +23,11 @@ const Register: React.FC = () => {
 
         <div className={Styles.form}>
           <TextField
+            value="Email"
+            type="mail"
+            icon={{ name: 'AiOutlineMail', color: '#ff6565' }}
+          />
+          <TextField
             value="Usuário"
             type="text"
             icon={{ name: 'BsPerson', color: '#ff6565' }}
@@ -34,9 +39,9 @@ const Register: React.FC = () => {
           />
 
           <div className={Styles.loginContainer}>
-            <button>Entrar</button>
+            <button>Cadastrar</button>
             <span>
-              Não é registrado ainda? <Link href="/register">Registrar</Link>
+              Já tem uma conta? <Link href="/login">Entrar</Link>
             </span>
           </div>
         </div>

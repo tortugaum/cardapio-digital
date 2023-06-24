@@ -7,7 +7,8 @@ import Layout from '@/compnents/Layout';
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  const isLoginPage = router.pathname === '/login';
+  const isLoginPage =
+    router.pathname === '/login' || router.pathname === '/register';
 
   return (
     <Layout isLoginPage={isLoginPage}>
