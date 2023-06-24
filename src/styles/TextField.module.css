@@ -1,0 +1,17 @@
+.fieldContainer{
+  border: 2px solid #c4c4c4;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.fieldContainer input{
+  border: none;
+  margin: 0 0 0 1em;
+  font-weight: 600;
+}
+
+.fieldContainer svg{
+  padding: 0.2em;
+}

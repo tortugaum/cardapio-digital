@@ -1,0 +1,1 @@
+- Implementar um middleware para pegar rotas maiusculas e jogar minusculo
