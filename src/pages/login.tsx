@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { FormEvent, useState } from 'react';
 
 import Container from '@/compnents/Container';
 import TextField from '@/compnents/form/TextField';
@@ -9,6 +10,21 @@ import TextField from '@/compnents/form/TextField';
 import Styles from '../styles/Login.module.css';
 
 const Login: React.FC = () => {
+  const [formData, setFormData] = useState({
+    user: '',
+    password: ''
+  });
+
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(formData);
+    //tratar no envio pro backend
+  };
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
   return (
     <Container>
       <div className={Styles.container}>
@@ -22,23 +38,31 @@ const Login: React.FC = () => {
         </div>
 
         <div className={Styles.form}>
-          <TextField
-            value="Usuário"
-            type="text"
-            icon={{ name: 'BsPerson', color: '#ff6565' }}
-          />
-          <TextField
-            value="Senha"
-            type="password"
-            icon={{ name: 'FiLock', color: '#ff6565' }}
-          />
+          <form onSubmit={onSubmit}>
+            <TextField
+              name="user"
+              value="Usuário"
+              type="text"
+              onChange={onChange}
+              icon={{ name: 'BsPerson', color: '#ff6565' }}
+            />
+            <TextField
+              name="password"
+              value="Senha"
+              type="password"
+              onChange={onChange}
+              icon={{ name: 'FiLock', color: '#ff6565' }}
+            />
 
-          <div className={Styles.loginContainer}>
-            <button>Entrar</button>
-            <span>
-              Não é registrado ainda? <Link href="/register">Registrar</Link>
-            </span>
-          </div>
+            <div className={Styles.loginContainer}>
+              <button type="submit" onSubmit={onSubmit}>
+                Entrar
+              </button>
+              <span>
+                Não é registrado ainda? <Link href="/register">Registrar</Link>
+              </span>
+            </div>
+          </form>
         </div>
 
         <footer className={Styles.footer}>

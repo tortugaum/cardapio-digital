@@ -9,16 +9,18 @@ interface IconProps {
   color?: string;
 }
 interface TextFieldProps {
+  name: string;
   value: string;
   type: string;
   icon: IconProps;
+  onChange: (...args: any[]) => void;
 }
-function TextField({ value, type, icon }: TextFieldProps) {
-  const { name, size = 32, color = 'black' } = icon || {};
+function TextField({ name, value, type, onChange, icon }: TextFieldProps) {
+  const { name: iconName, size = 32, color = 'black' } = icon || {};
   return (
     <div className={Styles.fieldContainer}>
-      <IconLoader icon={name} size={size} color={color} />
-      <input type={type} placeholder={value} />
+      <IconLoader icon={iconName} size={size} color={color} />
+      <input name={name} type={type} onChange={onChange} placeholder={value} />
     </div>
   );
 }

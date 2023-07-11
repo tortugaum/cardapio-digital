@@ -16,7 +16,6 @@ interface IconProps {
 
 const IconLoader = ({ icon, size, color }: IconProps) => {
   const getIcon = (iconName: string) => {
-    console.log('geticon', iconName);
     const iconsMap = new Map();
     iconsMap.set('Bs', bsIcons);
     iconsMap.set('Ai', aiIcons);
@@ -31,7 +30,6 @@ const IconLoader = ({ icon, size, color }: IconProps) => {
 
   const icons: any = getIcon(icon);
   const TheIcon: IconType = icons[icon];
-  console.log(TheIcon, size, color);
   return <TheIcon size={size} color={color} />;
 };
 

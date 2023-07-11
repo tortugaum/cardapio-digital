@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { FormEvent, useState } from 'react';
 
 import Container from '@/compnents/Container';
 import TextField from '@/compnents/form/TextField';
@@ -9,6 +10,22 @@ import TextField from '@/compnents/form/TextField';
 import Styles from '../styles/Login.module.css';
 
 const Register: React.FC = () => {
+  const [formData, setFormData] = useState({
+    user: '',
+    email: '',
+    password: ''
+  });
+
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(formData);
+    //tratar no envio pro backend
+  };
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
   return (
     <Container>
       <div className={Styles.container}>
@@ -22,28 +39,36 @@ const Register: React.FC = () => {
         </div>
 
         <div className={Styles.form}>
-          <TextField
-            value="Email"
-            type="mail"
-            icon={{ name: 'AiOutlineMail', color: '#ff6565' }}
-          />
-          <TextField
-            value="Usuário"
-            type="text"
-            icon={{ name: 'BsPerson', color: '#ff6565' }}
-          />
-          <TextField
-            value="Senha"
-            type="password"
-            icon={{ name: 'FiLock', color: '#ff6565' }}
-          />
+          <form onSubmit={onSubmit}>
+            <TextField
+              value="Email"
+              name="email"
+              type="mail"
+              onChange={onChange}
+              icon={{ name: 'AiOutlineMail', color: '#ff6565' }}
+            />
+            <TextField
+              value="Usuário"
+              name="user"
+              type="text"
+              onChange={onChange}
+              icon={{ name: 'BsPerson', color: '#ff6565' }}
+            />
+            <TextField
+              value="Senha"
+              name="password"
+              type="password"
+              onChange={onChange}
+              icon={{ name: 'FiLock', color: '#ff6565' }}
+            />
 
-          <div className={Styles.loginContainer}>
-            <button>Cadastrar</button>
-            <span>
-              Já tem uma conta? <Link href="/login">Entrar</Link>
-            </span>
-          </div>
+            <div className={Styles.loginContainer}>
+              <button type="submit">Cadastrar</button>
+              <span>
+                Já tem uma conta? <Link href="/login">Entrar</Link>
+              </span>
+            </div>
+          </form>
         </div>
 
         <footer className={Styles.footer}>
