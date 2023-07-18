@@ -1,3 +1,15 @@
 .container{
-  background-color: red;
+  height: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #393939;
+}
+
+.hamburgerMenuBtn{
+  text-decoration: none;
+  border: none;
+  z-index: 99;
+  background-color: transparent;
 }

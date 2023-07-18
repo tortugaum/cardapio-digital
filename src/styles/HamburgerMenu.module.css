@@ -1,0 +1,13 @@
+.container{
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  left: 0;
+  background-color: pink;
+  display: flex;
+  padding: 1em;
+}
+
+.container > *{
+  position: relative;
+}

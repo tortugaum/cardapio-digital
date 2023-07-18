@@ -12,7 +12,7 @@ function Layout({ children, isLoginPage }: MyProps) {
     <>
       {!isLoginPage && <Navbar />}
       {children}
-      {!isLoginPage && <Footer />}
+      {/* {!isLoginPage && <Footer />} */}
     </>
   );
 }
